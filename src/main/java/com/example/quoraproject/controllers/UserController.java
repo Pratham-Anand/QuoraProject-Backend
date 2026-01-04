@@ -3,6 +3,7 @@ import com.example.quoraproject.dtos.ApiResponse;
 import com.example.quoraproject.dtos.CreateUserDto;
 import com.example.quoraproject.models.User;
 import com.example.quoraproject.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class UserController {
 
 
     @PostMapping
-    private ResponseEntity<ApiResponse<User>> addUser(@RequestBody CreateUserDto request) {
+    private ResponseEntity<ApiResponse<User>> addUser(@Valid @RequestBody CreateUserDto request) {
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
