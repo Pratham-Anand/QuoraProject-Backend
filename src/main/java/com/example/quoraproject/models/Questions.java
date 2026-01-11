@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -22,7 +23,13 @@ public class Questions extends BaseModel {
     @Column(nullable=false)
     private String body;
 
-//    private S topics
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(
+            name="question_topics",
+            joinColumns = @JoinColumn(name="question_id"),
+            inverseJoinColumns = @JoinColumn(name="topic_id")
+    )
+    private List<Topic> topics;
 
     @ManyToOne(fetch = FetchType.LAZY )
     @JoinColumn(name="user_id", nullable=false)

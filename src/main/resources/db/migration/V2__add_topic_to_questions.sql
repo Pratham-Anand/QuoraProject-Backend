@@ -1,0 +1,1 @@
+ALTER TABLE questions  ADD COLUMN  topic VARCHAR(25) NOT NULL DEFAULT 'general';

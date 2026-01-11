@@ -1,0 +1,5 @@
+Fetch lazy works behind the scene like in case of question will not query user if get query of question is made;
+
+Jackson serializer will force to return everything of question object so we have to make dto response.
+
+rename does not happen in flyway.
