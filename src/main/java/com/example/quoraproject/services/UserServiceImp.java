@@ -5,6 +5,8 @@ import com.example.quoraproject.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImp implements UserService{
 
@@ -17,6 +19,12 @@ public class UserServiceImp implements UserService{
 
 
     public User createUser(User user){
+
+        if(userRepository.existsUserByEmail(user.getEmail())) throw new RuntimeException("This email already exists");
         return userRepository.save(user);
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 }

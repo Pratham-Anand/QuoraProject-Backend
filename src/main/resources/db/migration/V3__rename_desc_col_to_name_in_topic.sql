@@ -1,0 +1,1 @@
+ALTER TABLE topics drop COLUMN description;
