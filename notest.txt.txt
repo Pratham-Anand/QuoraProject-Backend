@@ -3,3 +3,13 @@ Fetch lazy works behind the scene like in case of question will not query user i
 Jackson serializer will force to return everything of question object so we have to make dto response.
 
 rename does not happen in flyway.
+
+@JsonIgnore permanently disables the field in response json.Better to use response dtos.
+
+See how we create mapper class and later on even better approach is to use MapStrcut.
+In case of topic we can use StructMap to automatically handle the mapping.
+We can make flat dtos also.
+===========================================================
+topic management done
+question management done except search of questions
+answer management done.
