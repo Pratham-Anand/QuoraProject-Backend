@@ -1,4 +1,5 @@
 package com.example.quoraproject.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Topic extends BaseModel{
     private String name;
 
     @ManyToMany(mappedBy="topics")
+//    @JsonIgnore
     private List<Questions> questions;
 
 
