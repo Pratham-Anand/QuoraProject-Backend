@@ -9,6 +9,8 @@ rename does not happen in flyway.
 See how we create mapper class and later on even better approach is to use MapStrcut.
 In case of topic we can use StructMap to automatically handle the mapping.
 We can make flat dtos also.
+
+** - Adding the @OneToMany in the User entity doesn’t create new columns, it’s purely for JPA/Hibernate to know the relationship direction and handle things like cascading operations. So no redundancy, and no need to touch existing foreign keys in child tables.
 ===========================================================
 topic management done
 question management done except search of questions
