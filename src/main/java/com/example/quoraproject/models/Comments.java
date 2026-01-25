@@ -32,6 +32,9 @@ public class Comments extends BaseModel{
     @JoinColumn(name="parent_id")
     private Comments parent;
 
+    @Column(name="likecount",nullable = false)
+    private int likeCount=0;
+
 
     @PrePersist
     void generateUUID(){

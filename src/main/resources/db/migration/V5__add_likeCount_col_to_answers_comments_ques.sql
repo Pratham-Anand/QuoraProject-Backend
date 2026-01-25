@@ -1,0 +1,2 @@
+ALTER TABLE comments ADD COLUMN  likeCount INT DEFAULT 0;
+ALTER TABLE answers  ADD COLUMN  likeCount INT DEFAULT 0;
