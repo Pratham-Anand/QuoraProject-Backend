@@ -68,4 +68,33 @@ public class LikeServiceImp implements LikeService {
         return likeRepository.save(like);
 
     }
+
+    @Override
+    public void unLike(UUID userId,TargetType targetType,UUID targetId){
+
+        User user=userRepository.findUsersByUserId(userId);
+        Like like=likeRepository.findByUserAndTarget(user.getId(),targetId)
+                .orElseThrow(()-> new RuntimeException("Like not found"));
+
+        likeRepository.delete(like);
+
+        if(targetType==QUESTION){
+            Questions question=questionRepository.findByQuestionId(targetId);
+            if(question==null) throw new RuntimeException("This question does not exist");
+            question.setLikeCount(question.getLikeCount()-1);
+            questionRepository.save(question);
+        }
+        else if(targetType==COMMENT){
+            Comments comment=commentRepository.findByCommentId(targetId);
+            if(comment==null) throw new RuntimeException("This comment does not exist");
+            comment.setLikeCount(comment.getLikeCount()-1);
+            commentRepository.save(comment);
+        }
+        else if(targetType==ANSWER){
+            Answers answer=answerRepository.findByAnswerId(targetId);
+            if(answer==null) throw new RuntimeException(("This answer does not exist"));
+            answer.setLikeCount(answer.getLikeCount()-1);
+        }
+
+    }
 }
