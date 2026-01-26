@@ -35,6 +35,9 @@ public class Questions extends BaseModel {
     @JoinColumn(name="user_id", nullable=false)
     private User user;
 
+    @Column(name="likecount",nullable = false)
+    private int likeCount=0;
+
     @PrePersist
     void generateUuid(){
         this.questionId=UUID.randomUUID();

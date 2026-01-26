@@ -33,5 +33,8 @@ public class Answers extends BaseModel {
         this.answerId=UUID.randomUUID();
     }
 
+    @Column(name="likecount",nullable = false)
+    private int likeCount=0;
+
 
 }

@@ -15,3 +15,11 @@ We can make flat dtos also.
 topic management done
 question management done except search of questions
 answer management done.
+comment management done.
+=======================================================
+In findUserAndTarget(userId ,targetId) pass the userID in long coz we are querying on long in pks in repository layer .We can send the targetId in UUID because it does not have its repository class.
+
+--no response body in case of 204.
+
+
+
