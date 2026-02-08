@@ -1,6 +1,7 @@
 package com.example.quoraproject.repositories;
 
 import com.example.quoraproject.models.User;
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -17,4 +18,5 @@ public interface UserRepository extends JpaRepository<User,Long> {
     Boolean existsUserByEmail(String email);
 
 
+    boolean existsByUsername(@NotBlank String username);
 }

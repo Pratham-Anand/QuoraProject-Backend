@@ -26,6 +26,15 @@ public class User extends BaseModel {
     @Column(length=500)
     private String bio;
 
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private Boolean isVerified;
+
+    @Column(nullable = false)
+    private boolean isActive;
+
     @PrePersist
     void generateUuid(){
         this.userId=UUID.randomUUID();
